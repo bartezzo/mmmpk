@@ -54,11 +54,11 @@ class DashboardFragment : Fragment() {
     }
 
     private fun bindUIGestures() {
-        disposable = downloadButton.clicks()
-            .observeOnMainThread()
-            .subscribe{
-                viewModel.getDeparturesData()
-            }
+//        disposable = downloadButton.clicks()
+//            .observeOnMainThread()
+//            .subscribe{
+//                viewModel.getDeparturesData()
+//            }
     }
 
     private fun bindUIData() {
