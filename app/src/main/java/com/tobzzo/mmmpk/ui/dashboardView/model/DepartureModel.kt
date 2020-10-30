@@ -1,4 +1,4 @@
-package com.tobzzo.mmmpk.ui.dashboard.model
+package com.tobzzo.mmmpk.ui.dashboardView.model
 
 data class DepartureModel(
     val name: String = "EMPTY_NAME",

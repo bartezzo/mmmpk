@@ -1,6 +1,6 @@
-package com.tobzzo.mmmpk.ui.dashboard.network
+package com.tobzzo.mmmpk.network
 
-import com.tobzzo.mmmpk.ui.dashboard.model.DepartureModel
+import com.tobzzo.mmmpk.ui.dashboardView.model.DepartureModel
 import io.reactivex.Observable
 
 interface ApiServiceInterface {

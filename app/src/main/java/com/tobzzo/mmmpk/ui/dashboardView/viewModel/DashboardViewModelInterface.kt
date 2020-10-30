@@ -1,8 +1,8 @@
-package com.tobzzo.mmmpk.ui.dashboard
+package com.tobzzo.mmmpk.ui.dashboardView.viewModel
 
 import androidx.lifecycle.LiveData
 import com.tobzzo.mmmpk.helpers.ErrorMessage
-import com.tobzzo.mmmpk.ui.dashboard.model.DepartureModel
+import com.tobzzo.mmmpk.ui.dashboardView.model.DepartureModel
 
 interface DashboardViewModelInterface {
     val departures: LiveData<List<DepartureModel>>

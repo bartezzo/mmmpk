@@ -1,8 +1,8 @@
-package com.tobzzo.mmmpk.ui.dashboard.view
+package com.tobzzo.mmmpk.ui.dashboardView.view
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.tobzzo.mmmpk.ui.dashboard.model.DepartureModel
+import com.tobzzo.mmmpk.ui.dashboardView.model.DepartureModel
 import kotlinx.android.synthetic.main.departurees_recyclerview_item_row.view.*
 
 class DeparturesHolder(v: View): RecyclerView.ViewHolder(v), View.OnClickListener {

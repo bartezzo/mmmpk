@@ -1,10 +1,10 @@
-package com.tobzzo.mmmpk.ui.dashboard.view
+package com.tobzzo.mmmpk.ui.dashboardView.view
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tobzzo.mmmpk.R
 import com.tobzzo.mmmpk.helpers.inflate
-import com.tobzzo.mmmpk.ui.dashboard.model.DepartureModel
+import com.tobzzo.mmmpk.ui.dashboardView.model.DepartureModel
 
 class DeparturesRecyclerAdapter(private val departures: List<DepartureModel>) :
     RecyclerView.Adapter<DeparturesHolder>() {
