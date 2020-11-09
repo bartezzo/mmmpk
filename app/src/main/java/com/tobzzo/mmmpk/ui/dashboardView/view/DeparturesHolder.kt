@@ -23,6 +23,7 @@ class DeparturesHolder(v: View): RecyclerView.ViewHolder(v), View.OnClickListene
 
         view.departureLine.text = departure.line
         view.departureStation.text = departure.station
+        view.departureDirection.text = departure.direction
         view.departureDay.text = departure.day
         view.departureHour.text = departure.hour
         view.departureMinute.text = departure.minute

@@ -33,26 +33,32 @@ class ApiService() : ApiServiceInterface {
         val xmlList = mutableListOf<DepartureModel>()
         xmlRawArray.forEach { departures ->
             val line = departures.line
-            val station = departures.station
-            val direction = departures.direction
-            val departureDays = departures.day
-            departureDays.forEach { departureDay ->
-                val departureDayName = departureDay.name
-                val departureDayTimes = departureDay.time
-                departureDayTimes.forEach { time ->
-                    val departureTimeHour = time.hour
-                    val departureTimeMinute = time.minute
+            val stations = departures.station
+            stations.forEach { station ->
+                val stationName = station.name
+                val directions = station.direction
+                directions.forEach { direction ->
+                    val directionName = direction.name
+                    val departureDays = direction.day
+                    departureDays.forEach { departureDay ->
+                        val departureDayName = departureDay.name
+                        val departureDayTimes = departureDay.time
+                        departureDayTimes.forEach { time ->
+                            val departureTimeHour = time.hour
+                            val departureTimeMinute = time.minute
 
-                    xmlList.add(
-                        DepartureModel(
-                            line,
-                            station,
-                            direction,
-                            departureDayName,
-                            departureTimeHour,
-                            departureTimeMinute
-                        )
-                    )
+                            xmlList.add(
+                                DepartureModel(
+                                    line,
+                                    stationName,
+                                    directionName,
+                                    departureDayName,
+                                    departureTimeHour,
+                                    departureTimeMinute
+                                )
+                            )
+                        }
+                    }
                 }
             }
         }

@@ -1,137 +1,189 @@
 [
   {
     "line": "1",
-    "station": "BAZA_ZWIK",
-    "direction": "PKP",
-    "day": [
+    "station": [
       {
-        "name": "PN_PT",
-        "time": [
+        "name": "BAZA_ZWIK",
+        "direction": [
           {
-            "hour": "4",
-            "minute": "16"
+            "name": "PKP",
+            "day": [
+              {
+                "name": "PN_PT",
+                "time": [
+                  {
+                    "hour": "4",
+                    "minute": "16"
+                  },
+                  {
+                    "hour": "4",
+                    "minute": "49"
+                  },
+                  {
+                    "hour": "5",
+                    "minute": "18"
+                  },
+                  {
+                    "hour": "6",
+                    "minute": "3"
+                  },
+                  {
+                    "hour": "7",
+                    "minute": "18"
+                  },
+                  {
+                    "hour": "8",
+                    "minute": "2"
+                  },
+                  {
+                    "hour": "9",
+                    "minute": "15"
+                  },
+                  {
+                    "hour": "10",
+                    "minute": "12"
+                  },
+                  {
+                    "hour": "11",
+                    "minute": "15"
+                  },
+                  {
+                    "hour": "14",
+                    "minute": "10"
+                  },
+                  {
+                    "hour": "15",
+                    "minute": "10"
+                  },
+                  {
+                    "hour": "16",
+                    "minute": "15"
+                  },
+                  {
+                    "hour": "17",
+                    "minute": "10"
+                  },
+                  {
+                    "hour": "17",
+                    "minute": "59"
+                  },
+                  {
+                    "hour": "19",
+                    "minute": "12"
+                  },
+                  {
+                    "hour": "20",
+                    "minute": "00"
+                  },
+                  {
+                    "hour": "20",
+                    "minute": "48"
+                  }
+                ]
+              },
+              {
+                "name": "SB",
+                "time": [
+                  {
+                    "hour": "8",
+                    "minute": "2"
+                  },
+                  {
+                    "hour": "9",
+                    "minute": "14"
+                  },
+                  {
+                    "hour": "10",
+                    "minute": "31"
+                  },
+                  {
+                    "hour": "11",
+                    "minute": "18"
+                  },
+                  {
+                    "hour": "12",
+                    "minute": "35"
+                  }
+                ]
+              },
+              {
+                "name": "ND",
+                "time": [
+                  {
+                    "hour": "11",
+                    "minute": "0"
+                  },
+                  {
+                    "hour": "12",
+                    "minute": "30"
+                  },
+                  {
+                    "hour": "14",
+                    "minute": "00"
+                  },
+                  {
+                    "hour": "15",
+                    "minute": "00"
+                  },
+                  {
+                    "hour": "16",
+                    "minute": "00"
+                  },
+                  {
+                    "hour": "17",
+                    "minute": "00"
+                  },
+                  {
+                    "hour": "18",
+                    "minute": "00"
+                  }
+                ]
+              }
+            ]
           },
           {
-            "hour": "4",
-            "minute": "49"
-          },
-          {
-            "hour": "5",
-            "minute": "18"
-          },
-          {
-            "hour": "6",
-            "minute": "3"
-          },
-          {
-            "hour": "7",
-            "minute": "18"
-          },
-          {
-            "hour": "8",
-            "minute": "2"
-          },
-          {
-            "hour": "9",
-            "minute": "15"
-          },
-          {
-            "hour": "10",
-            "minute": "12"
-          },
-          {
-            "hour": "11",
-            "minute": "15"
-          },
-          {
-            "hour": "14",
-            "minute": "10"
-          },
-          {
-            "hour": "15",
-            "minute": "10"
-          },
-          {
-            "hour": "16",
-            "minute": "15"
-          },
-          {
-            "hour": "17",
-            "minute": "10"
-          },
-          {
-            "hour": "17",
-            "minute": "59"
-          },
-          {
-            "hour": "19",
-            "minute": "12"
-          },
-          {
-            "hour": "20",
-            "minute": "00"
-          },
-          {
-            "hour": "20",
-            "minute": "48"
-          }
-        ]
-      },
-      {
-        "name": "SB",
-        "time": [
-          {
-            "hour": "8",
-            "minute": "2"
-          },
-          {
-            "hour": "9",
-            "minute": "14"
-          },
-          {
-            "hour": "10",
-            "minute": "31"
-          },
-          {
-            "hour": "11",
-            "minute": "18"
-          },
-          {
-            "hour": "12",
-            "minute": "35"
-          }
-        ]
-      },
-      {
-        "name": "ND",
-        "time": [
-          {
-            "hour": "11",
-            "minute": "0"
-          },
-          {
-            "hour": "12",
-            "minute": "30"
-          },
-          {
-            "hour": "14",
-            "minute": "00"
-          },
-          {
-            "hour": "15",
-            "minute": "00"
-          },
-          {
-            "hour": "16",
-            "minute": "00"
-          },
-          {
-            "hour": "17",
-            "minute": "00"
-          },
-          {
-            "hour": "18",
-            "minute": "00"
+            "name": "ZWIK",
+            "day": [
+              {
+                "name" : "PN_PT",
+                "time": [
+                  {
+                    "hour" : "0",
+                    "minute": "1"
+                  },
+                  {
+                    "hour" : "1",
+                    "minute": "2"
+                  }
+                ]
+              },
+              {
+                "name" : "SB",
+                "time": [
+                  {
+                    "hour" : "0",
+                    "minute": "1"
+                  },
+                  {
+                    "hour" : "1",
+                    "minute": "2"
+                  }
+                ]
+              },
+              {
+                "name" : "ND",
+                "time": [
+                  {
+                    "hour" : "0",
+                    "minute": "1"
+                  },
+                  {
+                    "hour" : "1",
+                    "minute": "2"
+                  }
+                ]
+              }
+            ]
           }
         ]
       }

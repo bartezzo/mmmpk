@@ -31,6 +31,17 @@
         app:layout_constraintTop_toBottomOf="@+id/departureLine"
         tools:text="station" />
 
+    <TextView
+        android:id="@+id/departureDirection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#00574B"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/departureStation"
+        tools:text="station" />
 
     <TextView
         android:id="@+id/departureDay"
@@ -41,7 +52,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/departureStation"
+        app:layout_constraintTop_toBottomOf="@+id/departureDirection"
         tools:text="day" />
 
     <TextView
