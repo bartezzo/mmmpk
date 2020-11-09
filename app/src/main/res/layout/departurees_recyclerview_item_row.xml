@@ -8,19 +8,7 @@
     android:layout_margin="16dp">
 
     <TextView
-        android:id="@+id/departureName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="name" />
-
-    <TextView
-
-        android:id="@+id/departureTime"
+        android:id="@+id/departureLine"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="#00574B"
@@ -28,7 +16,57 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/departureName"
-        tools:text="price" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="line" />
+
+    <TextView
+        android:id="@+id/departureStation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#00574B"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/departureLine"
+        tools:text="station" />
+
+
+    <TextView
+        android:id="@+id/departureDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#00574B"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/departureStation"
+        tools:text="day" />
+
+    <TextView
+        android:id="@+id/departureHour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#00574B"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/departureDay"
+        tools:text="hour" />
+
+    <TextView
+        android:id="@+id/departureMinute"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#00574B"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/departureHour"
+        tools:text="minute" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

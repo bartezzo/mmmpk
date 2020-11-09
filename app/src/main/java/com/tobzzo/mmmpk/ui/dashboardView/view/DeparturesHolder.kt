@@ -1,5 +1,6 @@
 package com.tobzzo.mmmpk.ui.dashboardView.view
 
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.tobzzo.mmmpk.ui.dashboardView.model.DepartureModel
@@ -20,7 +21,12 @@ class DeparturesHolder(v: View): RecyclerView.ViewHolder(v), View.OnClickListene
     fun bindDeparture(departure: DepartureModel) {
         this.departure = departure
 
-        view.departureName.text = departure.name
-        view.departureTime.text = departure.time
+        view.departureLine.text = departure.line
+        view.departureStation.text = departure.station
+        view.departureDay.text = departure.day
+        view.departureHour.text = departure.hour
+        view.departureMinute.text = departure.minute
+
+        Log.d("AAA", departure.toString())
     }
 }

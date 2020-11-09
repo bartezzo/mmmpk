@@ -4,9 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tobzzo.mmmpk.helpers.*
-import com.tobzzo.mmmpk.ui.dashboardView.model.DepartureModel
+import com.tobzzo.mmmpk.ui.dashboardView.model.json.Departures
 import com.tobzzo.mmmpk.network.ApiService
 import com.tobzzo.mmmpk.network.ApiServiceInterface
+import com.tobzzo.mmmpk.ui.dashboardView.model.DepartureModel
 import io.reactivex.disposables.Disposable
 
 class DashboardViewModel(

@@ -1,6 +1,10 @@
 package com.tobzzo.mmmpk.ui.dashboardView.model
 
 data class DepartureModel(
-    val name: String = "EMPTY_NAME",
-    val time: String = "EMPTY_TIME"
+    val line: String,
+    val station: String,
+    val direction: String,
+    val day:String,
+    val hour:String,
+    val minute:String
 )

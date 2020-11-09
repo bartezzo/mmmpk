@@ -1,34 +1,62 @@
 package com.tobzzo.mmmpk.network
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.tobzzo.mmmpk.MmmpkApp
+import com.tobzzo.mmmpk.R
 import com.tobzzo.mmmpk.ui.dashboardView.model.DepartureModel
+import com.tobzzo.mmmpk.ui.dashboardView.model.json.Departures
+import com.tobzzo.mmmpk.ui.dashboardView.model.json.DeparturesDay
 import io.reactivex.Observable
+import timber.log.Timber
+import java.io.IOException
 
 class ApiService() : ApiServiceInterface {
     override fun getAllDepartures(): Observable<List<DepartureModel>> {
+        return try {
+            val xmlList = deserializeFromXML()
+            return Observable.just(xmlList)
+        } catch (e: IOException) {
+            Timber.e(e, "deserializeFromXML error")
+            Observable.error(Throwable("deserializeFromXML error:[$e]"))
+        }
+    }
 
-        return Observable.just(
-            listOf(
-                DepartureModel("name01", "time01"),
-                DepartureModel("name02", "time02"),
-                DepartureModel("name03", "time03"),
-                DepartureModel("name04", "time04"),
-                DepartureModel("name05", "time05"),
-                DepartureModel("name06", "time06"),
-                DepartureModel("name07", "time07"),
-                DepartureModel("name08", "time08"),
-                DepartureModel("name09", "time09"),
-                DepartureModel("name10", "time10"),
-                DepartureModel("name11", "time11"),
-                DepartureModel("name12", "time12"),
-                DepartureModel("name13", "time13"),
-                DepartureModel("name14", "time14"),
-                DepartureModel("name15", "time15"),
-                DepartureModel("name16", "time16"),
-                DepartureModel("name17", "time17"),
-                DepartureModel("name18", "time18"),
-                DepartureModel("name19", "time19"),
-                DepartureModel("name20", "time20")
-            )
+    private fun deserializeFromXML(): List<DepartureModel> {
+        val json = MmmpkApp.context?.resources?.openRawResource(R.raw.timetable3)
+            ?.bufferedReader().use { it?.readText() }
+
+        val xmlRawArray: Array<Departures> = ObjectMapper().readValue(
+            json,
+            Array<Departures>::class.java
         )
+
+        val xmlList = mutableListOf<DepartureModel>()
+        xmlRawArray.forEach { departures ->
+            val line = departures.line
+            val station = departures.station
+            val direction = departures.direction
+            val departureDays = departures.day
+            departureDays.forEach { departureDay ->
+                val departureDayName = departureDay.name
+                val departureDayTimes = departureDay.time
+                departureDayTimes.forEach { time ->
+                    val departureTimeHour = time.hour
+                    val departureTimeMinute = time.minute
+
+                    xmlList.add(
+                        DepartureModel(
+                            line,
+                            station,
+                            direction,
+                            departureDayName,
+                            departureTimeHour,
+                            departureTimeMinute
+                        )
+                    )
+                }
+            }
+        }
+
+        return xmlList
     }
 }
