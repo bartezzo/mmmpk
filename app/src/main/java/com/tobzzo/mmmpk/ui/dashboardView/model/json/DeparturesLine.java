@@ -13,16 +13,22 @@ import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "line",
+        "name",
         "station"
 
 })
-public class Departures {
-    private DeparturesLine[] line;
+public class DeparturesLine {
+    private String name;
+    private DeparturesStation[] station;
 
-    @JsonProperty("line")
-    public DeparturesLine[] getLine() {
-        return line;
+    @JsonProperty("name")
+    public String getName() {
+        return name;
+    }
+
+    @JsonProperty("station")
+    public DeparturesStation[] getStation() {
+        return station;
     }
 
     @JsonIgnore
@@ -40,8 +46,9 @@ public class Departures {
 
     @Override
     public String toString() {
-        return "Departures{" +
-                "line=" + Arrays.toString(line) +
+        return "DeparturesLine{" +
+                "name='" + name + '\'' +
+                ", station=" + Arrays.toString(station) +
                 ", additionalProperties=" + additionalProperties +
                 '}';
     }

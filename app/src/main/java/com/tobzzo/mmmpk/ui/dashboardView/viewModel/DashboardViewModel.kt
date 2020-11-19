@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tobzzo.mmmpk.helpers.*
-import com.tobzzo.mmmpk.ui.dashboardView.model.json.Departures
 import com.tobzzo.mmmpk.network.ApiService
 import com.tobzzo.mmmpk.network.ApiServiceInterface
+import com.tobzzo.mmmpk.ui.dashboardView.model.DepartureDayEnum
 import com.tobzzo.mmmpk.ui.dashboardView.model.DepartureModel
 import io.reactivex.disposables.Disposable
 
@@ -31,9 +31,9 @@ class DashboardViewModel(
     private val errorsData = MutableLiveData<ErrorMessage>()
 
     private var disposable: Disposable? = null
-    override fun getDeparturesData() {
+    override fun getDeparturesData(day: DepartureDayEnum, hour: Int, minute: Int) {
         disposable?.dispose()
-        disposable = apiService.getAllDepartures()
+        disposable = apiService.getAllDepartures(day, hour, minute)
             .subscribeOnIOThread()
             .observeOnMainThread()
             .withProgress(progressData)

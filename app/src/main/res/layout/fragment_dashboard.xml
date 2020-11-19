@@ -7,28 +7,193 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboardView.view.DashboardFragment">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/filter_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3">
+
+                <ImageView
+                    android:id="@+id/filter_image"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:tag="image_tag" />
+
+                <LinearLayout
+                    android:id="@+id/filter_inside_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/filter_departure_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="LINE"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffffff"
+                        app:backgroundTint="#ffaa000f" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/filter_departure_station"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="STATION"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffffff"
+                        app:backgroundTint="#ff0000f0" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/filter_departure_direction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="DIRECTION"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffffff"
+                        app:backgroundTint="#ff00880f" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filter_departure_line_box"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <NumberPicker
+                    android:id="@+id/filter_departure_line_picker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filter_departure_station_box"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <NumberPicker
+                    android:id="@+id/filter_departure_station_picker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filter_departure_direction_box"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <NumberPicker
+                    android:id="@+id/filter_departure_direction_picker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filter_departure_time_box"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+
+                <NumberPicker
+                    android:id="@+id/filter_departure_day"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <NumberPicker
+                    android:id="@+id/filter_departure_hour"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <NumberPicker
+                    android:id="@+id/filter_departure_minute"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:scrollbars="vertical"
+        android:visibility="visible"
+        app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView"
-        tools:visibility="invisible" />
+        app:layout_constraintTop_toBottomOf="@+id/filter_card_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

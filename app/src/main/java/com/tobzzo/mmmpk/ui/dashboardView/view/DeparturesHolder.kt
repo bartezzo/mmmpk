@@ -24,9 +24,9 @@ class DeparturesHolder(v: View): RecyclerView.ViewHolder(v), View.OnClickListene
         view.departureLine.text = departure.line
         view.departureStation.text = departure.station
         view.departureDirection.text = departure.direction
-        view.departureDay.text = departure.day
-        view.departureHour.text = departure.hour
-        view.departureMinute.text = departure.minute
+        view.departureDay.text = departure.day.toString()
+        view.departureHour.text = departure.hour.toString()
+        view.departureMinute.text = departure.minute.toString()
 
         Log.d("AAA", departure.toString())
     }
