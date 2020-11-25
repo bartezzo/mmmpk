@@ -42,9 +42,9 @@ class DashboardFragment : Fragment() {
 
     private fun createView() {
         setupViews()
+        setupRecyclerView()
         bindUIData()
         bindUIGestures()
-        setupRecyclerView()
 
 //        viewModel.getDeparturesData()
     }
@@ -56,6 +56,13 @@ class DashboardFragment : Fragment() {
         setupFilterDepartureDayPicker()
         setupFilterDepartureHourPicker()
         setupFilterDepartureMinutePicker()
+        setupFilterView()
+    }
+
+    private fun setupFilterView() {
+//        area_filter.setExpandedView()
+//        var mPriceFilter: FilterView
+//        var mSortFilter: FilterView
     }
 
     private fun setupFilterDepartureLinePicker() {
@@ -64,6 +71,8 @@ class DashboardFragment : Fragment() {
         filter_departure_line_picker.maxValue = enums?.let { it.size - 1 } ?: 0
         filter_departure_line_picker.displayedValues = enums
         filter_departure_line_picker.value = (enums?.size ?: 0) / 2
+
+        filter_departure_line.text = filter_departure_line_picker.displayedValues[filter_departure_line_picker.value]
     }
 
     private fun setupFilterDepartureStationPicker() {
@@ -72,6 +81,8 @@ class DashboardFragment : Fragment() {
         filter_departure_station_picker.maxValue = enums?.let { it.size - 1 } ?: 0
         filter_departure_station_picker.displayedValues = enums
         filter_departure_station_picker.value = (enums?.size ?: 0) / 2
+
+        filter_departure_station.text = filter_departure_station_picker.displayedValues[filter_departure_line_picker.value]
     }
 
     private fun setupFilterDepartureDirectionPicker() {
@@ -80,6 +91,8 @@ class DashboardFragment : Fragment() {
         filter_departure_direction_picker.maxValue = enums?.let { it.size - 1 } ?: 0
         filter_departure_direction_picker.displayedValues = enums
         filter_departure_direction_picker.value = (enums?.size ?: 0) / 2
+
+        filter_departure_direction.text = filter_departure_direction_picker.displayedValues[filter_departure_line_picker.value]
     }
 
     private fun setupFilterDepartureDayPicker() {
@@ -121,6 +134,14 @@ class DashboardFragment : Fragment() {
 //            .subscribe{
 //                viewModel.getDeparturesData()
 //            }
+
+        filter_options_image.clicks()
+            .observeOnMainThread()
+            .subscribe {
+                filter_options_layout.changeViewVisibility()
+            }
+
+
         filter_image.clicks()
             .observeOnMainThread()
             .subscribe {
@@ -151,15 +172,15 @@ class DashboardFragment : Fragment() {
             }
 
         filter_departure_line_picker.setOnValueChangedListener { picker, oldVal, newVal ->
-            filter_departure_line.text = filter_departure_line_picker.displayedValues[newVal]
+            filter_departure_line.text = picker.displayedValues[newVal]
         }
 
         filter_departure_station_picker.setOnValueChangedListener { picker, oldVal, newVal ->
-            filter_departure_station.text = filter_departure_station_picker.displayedValues[newVal]
+            filter_departure_station.text = picker.displayedValues[newVal]
         }
 
         filter_departure_direction_picker.setOnValueChangedListener { picker, oldVal, newVal ->
-            filter_departure_direction.text = filter_departure_direction_picker.displayedValues[newVal]
+            filter_departure_direction.text = picker.displayedValues[newVal]
         }
 
     }

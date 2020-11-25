@@ -30,8 +30,6 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false):
     return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
 }
 
-
-
 fun String.fromStringNumberToIntNumber(): Int = try {
     this.toInt()
 } catch (ex: Exception) {
@@ -46,13 +44,7 @@ fun String.fromStringDayToEnumDay(): DepartureDayEnum = try {
     DepartureDayEnum.NONE
 }
 
-fun Int.fromIntDayToEnumDay(): DepartureDayEnum = when(this) {
-    0 -> DepartureDayEnum.PN_PT
-    1 -> DepartureDayEnum.SB
-    2 -> DepartureDayEnum.ND
-    else -> DepartureDayEnum.NONE
-}
-
+fun Int.fromIntDayToEnumDay(): DepartureDayEnum = DepartureDayEnum.values()[this]
 
 fun View.changeViewVisibility() {
     this.visibility = if (this.visibility == View.VISIBLE) View.GONE else View.VISIBLE

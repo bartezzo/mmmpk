@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="HeaderBar">
+        <item name="android:background">#303F9F</item>
+    </style>
+
+    <style name="Theme.MmmpkUi" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">#ff00ffff</item>
+    </style>
+
+
+
+</resources>
