@@ -1,15 +1,14 @@
 package com.tobzzo.mmmpk
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,11 +17,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setNavView()
-        setToolBar()
+        setFabButton()
     }
 
-    private fun setToolBar() {
-//    setSupportActionBar(toolbar)
+    private fun setFabButton() {
+        nav_fab.setOnClickListener { view ->
+            Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
+                .show()
+        }
     }
 
     private fun setNavView() {
@@ -40,19 +43,4 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.menu_main, menu)
-//        return true
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        val id = item.itemId
-//
-//        if (id == R.id.action_favorite) {
-//            Toast.makeText(this@MainActivity, "Action clicked", Toast.LENGTH_LONG).show()
-//            return true
-//        }
-//
-//        return super.onOptionsItemSelected(item)
-//    }
 }

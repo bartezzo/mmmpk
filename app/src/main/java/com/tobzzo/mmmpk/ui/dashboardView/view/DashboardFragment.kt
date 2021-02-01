@@ -45,62 +45,42 @@ class DashboardFragment : Fragment() {
         setupRecyclerView()
         bindUIData()
         bindUIGestures()
-
-//        viewModel.getDeparturesData()
     }
 
     private fun setupViews() {
-        setupFilterDepartureLinePicker()
-        setupFilterDepartureStationPicker()
-        setupFilterDepartureDirectionPicker()
-        setupFilterDepartureDayPicker()
-        setupFilterDepartureHourPicker()
-        setupFilterDepartureMinutePicker()
+        setupFilterDepartureLine()
+        setupFilterDepartureStation()
+        setupFilterDepartureDirection()
+        setupFilterDepartureDay()
         setupFilterView()
     }
 
+
+    private fun snack(text: String) {
+        Snackbar.make(
+            rootLayout,
+            text,
+            Snackbar.LENGTH_SHORT
+        ).show()
+    }
+
     private fun setupFilterView() {
-//        area_filter.setExpandedView()
-//        var mPriceFilter: FilterView
-//        var mSortFilter: FilterView
     }
 
-    private fun setupFilterDepartureLinePicker() {
+    private fun setupFilterDepartureLine() {
         val enums = getAllEnums(DEPARTURE_LINE)
-        filter_departure_line_picker.minValue = 0
-        filter_departure_line_picker.maxValue = enums?.let { it.size - 1 } ?: 0
-        filter_departure_line_picker.displayedValues = enums
-        filter_departure_line_picker.value = (enums?.size ?: 0) / 2
-
-        filter_departure_line.text = filter_departure_line_picker.displayedValues[filter_departure_line_picker.value]
     }
 
-    private fun setupFilterDepartureStationPicker() {
+    private fun setupFilterDepartureStation() {
         val enums = getAllEnums(DEPARTURE_STATION)
-        filter_departure_station_picker.minValue = 0
-        filter_departure_station_picker.maxValue = enums?.let { it.size - 1 } ?: 0
-        filter_departure_station_picker.displayedValues = enums
-        filter_departure_station_picker.value = (enums?.size ?: 0) / 2
-
-        filter_departure_station.text = filter_departure_station_picker.displayedValues[filter_departure_line_picker.value]
     }
 
-    private fun setupFilterDepartureDirectionPicker() {
+    private fun setupFilterDepartureDirection() {
         val enums = getAllEnums(DEPARTURE_DIRECTION)
-        filter_departure_direction_picker.minValue = 0
-        filter_departure_direction_picker.maxValue = enums?.let { it.size - 1 } ?: 0
-        filter_departure_direction_picker.displayedValues = enums
-        filter_departure_direction_picker.value = (enums?.size ?: 0) / 2
-
-        filter_departure_direction.text = filter_departure_direction_picker.displayedValues[filter_departure_line_picker.value]
     }
 
-    private fun setupFilterDepartureDayPicker() {
+    private fun setupFilterDepartureDay() {
         val enums = getAllEnums(DEPARTURE_DAY)
-        filter_departure_day.minValue = 0
-        filter_departure_day.maxValue = enums?.let { it.size - 1 } ?: 0
-        filter_departure_day.displayedValues = enums
-        filter_departure_day.value = (enums?.size ?: 0) / 2
     }
 
     private fun getAllEnums(enum: DepartureEnums): Array<String>? = when (enum) {
@@ -111,17 +91,6 @@ class DashboardFragment : Fragment() {
         else -> emptyList()
     }.filter { it != "NONE" }.toTypedArray()
 
-    private fun setupFilterDepartureHourPicker() {
-        filter_departure_hour.minValue = 0
-        filter_departure_hour.maxValue = 23
-        filter_departure_hour.value = 8
-    }
-
-    private fun setupFilterDepartureMinutePicker() {
-        filter_departure_minute.minValue = 0
-        filter_departure_minute.maxValue = 59
-        filter_departure_minute.value = 30
-    }
 
     private fun setupRecyclerView() {
         recyclerView.layoutManager = linearLayoutManager
@@ -129,59 +98,39 @@ class DashboardFragment : Fragment() {
     }
 
     private fun bindUIGestures() {
-//        disposable = downloadButton.clicks()
-//            .observeOnMainThread()
-//            .subscribe{
-//                viewModel.getDeparturesData()
-//            }
-
-        filter_options_image.clicks()
-            .observeOnMainThread()
-            .subscribe {
-                filter_options_layout.changeViewVisibility()
-            }
-
-
-        filter_image.clicks()
-            .observeOnMainThread()
-            .subscribe {
-                viewModel.getDeparturesData(
-                    filter_departure_day.value.fromIntDayToEnumDay(),
-                    filter_departure_hour.value,
-                    filter_departure_hour.value
-                )
-            }
 
         filter_departure_line.clicks()
             .observeOnMainThread()
             .subscribe {
-                filter_departure_line_box.changeViewVisibility()
+                viewModel.getDeparturesData(
+                    DepartureDayEnum.PN_PT, 10, 5
+                )
             }
 
         filter_departure_station.clicks()
             .observeOnMainThread()
             .subscribe {
-                filter_departure_station_box.changeViewVisibility()
+                viewModel.getDeparturesData(
+                    DepartureDayEnum.PN_PT, 10, 5
+                )
             }
 
 
         filter_departure_direction.clicks()
             .observeOnMainThread()
             .subscribe {
-                filter_departure_direction_box.changeViewVisibility()
+                viewModel.getDeparturesData(
+                    DepartureDayEnum.PN_PT, 10, 5
+                )
             }
 
-        filter_departure_line_picker.setOnValueChangedListener { picker, oldVal, newVal ->
-            filter_departure_line.text = picker.displayedValues[newVal]
-        }
-
-        filter_departure_station_picker.setOnValueChangedListener { picker, oldVal, newVal ->
-            filter_departure_station.text = picker.displayedValues[newVal]
-        }
-
-        filter_departure_direction_picker.setOnValueChangedListener { picker, oldVal, newVal ->
-            filter_departure_direction.text = picker.displayedValues[newVal]
-        }
+        filter_search.clicks()
+            .observeOnMainThread()
+            .subscribe {
+                viewModel.getDeparturesData(
+                    DepartureDayEnum.PN_PT, 10, 5
+                )
+            }
 
     }
 
@@ -196,14 +145,9 @@ class DashboardFragment : Fragment() {
     }
 
     private fun updateProgress(isDownloading: Boolean) {
-//        progressBar.show(isDownloading)
     }
 
     private fun showErrorMessage(error: ErrorMessage) {
-        Snackbar.make(
-            rootLayout,
-            error.getMessage(),
-            Snackbar.LENGTH_SHORT
-        ).show()
+        snack(error.getMessage())
     }
 }
